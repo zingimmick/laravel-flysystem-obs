@@ -10,7 +10,7 @@
 
 > **Requires [PHP 7.2.0+](https://php.net/releases/)**
 
-Require Package Skeleton Laravel using [Composer](https://getcomposer.org):
+Require Laravel Flysystem OBS using [Composer](https://getcomposer.org):
 
 ```bash
 composer require zing/laravel-flysystem-obs
@@ -18,4 +18,4 @@ composer require zing/laravel-flysystem-obs
 
 ## License
 
-Package Skeleton Laravel is an open-sourced software licensed under the [MIT license](LICENSE).
+Laravel Flysystem OBS is an open-sourced software licensed under the [MIT license](LICENSE).
