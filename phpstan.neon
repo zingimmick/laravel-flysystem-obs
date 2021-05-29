@@ -8,5 +8,4 @@ parameters:
         - tests
     checkMissingIterableValueType: false
     ignoreErrors:
-        - '#Class Skeleton not found.#'
-        - '#Parameter \#1 \$(.*?) of function forward_static_call expects callable\(\): mixed#'
+        - '#Call to an undefined method League\\Flysystem\\FilesystemInterface::getAdapter\(\).#'
