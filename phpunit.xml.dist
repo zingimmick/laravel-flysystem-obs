@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <phpunit bootstrap="vendor/autoload.php" colors="true" verbose="true">
     <testsuites>
-        <testsuite name="Package Skeleton Laravel Test Suite">
+        <testsuite name="Laravel Flysystem OBS Test Suite">
             <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>

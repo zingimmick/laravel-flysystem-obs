@@ -1,7 +1,7 @@
 {
-    "name": "zing/package-skeleton-laravel",
-    "description": "A skeleton repository for Laravel Packages",
-    "keywords": ["laravel", "package", "skeleton"],
+    "name": "zing/laravel-flysystem-obs",
+    "description": "Flysystem Adapter for OBS",
+    "keywords": ["laravel", "flysystem", "obs"],
     "license": "MIT",
     "authors": [
         {
@@ -15,24 +15,24 @@
     },
     "require": {
         "php": "^7.2 || ^8.0",
-        "illuminate/support": "^6.0 || ^7.0 || ^8.0"
+        "illuminate/support": "^6.0 || ^7.0 || ^8.0",
+        "zing/flysystem-obs": "dev-develop"
     },
     "require-dev": {
         "mockery/mockery": "~1.3.3 || ^1.4.2",
         "nunomaduro/larastan": "^0.7.2",
         "orchestra/testbench": "^4.0 || ^5.0 || ^6.0",
         "phpunit/phpunit": "^8.0,<8.5.12 || ^9.3.3",
-        "symplify/changelog-linker": "^8.3 || ^9.2",
         "zing/coding-standard": "^4.0"
     },
     "autoload": {
         "psr-4": {
-            "Zing\\Skeleton\\": "src"
+            "Zing\\LaravelFlysystem\\Obs\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Zing\\Skeleton\\Tests\\": "tests"
+            "Zing\\LaravelFlysystem\\Obs\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -63,11 +63,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Zing\\Skeleton\\SkeletonServiceProvider"
-            ],
-            "aliases": {
-                "Skeleton": "Zing\\Skeleton\\Facades\\Skeleton"
-            }
+                "Zing\\LaravelFlysystem\\Obs\\ObsServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",
