@@ -15,13 +15,13 @@ class TestCase extends BaseTestCase
         return [ObsServiceProvider::class];
     }
 
-    protected function getEnvironmentSetUp($app)
+    protected function getEnvironmentSetUp($app): void
     {
         Config::set('filesystems.disks.obs', [
             'driver' => 'obs',
             'key' => '',
             'secret' => '',
-            'bucket'=>'',
+            'bucket' => '',
             'security_token' => '',
             'endpoint' => 'x',
             'signature' => 'v2',
@@ -34,7 +34,7 @@ class TestCase extends BaseTestCase
             'socket_timeout' => '',
             'connect_timeout' => '',
             'chunk_size' => '',
-            'exception_response_mode' => '']
-        );
+            'exception_response_mode' => '',
+        ]);
     }
 }
