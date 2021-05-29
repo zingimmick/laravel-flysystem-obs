@@ -23,7 +23,7 @@ class TestCase extends BaseTestCase
             'secret' => '',
             'bucket' => '',
             'security_token' => '',
-            'endpoint' => 'x',
+            'endpoint' => 'obs.cn-east-3.myhuaweicloud.com',
             'signature' => 'v2',
             'path_style' => '',
             'region' => '',
