@@ -31,7 +31,7 @@ class ObsServiceProvider extends ServiceProvider
                 $options
             );
 
-            $filesystem = new Filesystem($adapter);
+            $filesystem = new Filesystem($adapter, $config);
 
             $filesystem->addPlugin(new FileUrl());
             $filesystem->addPlugin(new SignUrl());
