@@ -21,14 +21,14 @@ class ObsServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Storage::extend('obs', function ($app, $config) {
-            dump($config);
             $root = $config['root'] ?? null;
+            $options = $config['options'] ?? [];
             $adapter = new ObsAdapter(
                 new ObsClient($config),
                 $config['endpoint'],
                 $config['bucket'],
-                $config['isCName'] ?? false,
-                $root
+                $root,
+                $options
             );
 
             $filesystem = new Filesystem($adapter);
