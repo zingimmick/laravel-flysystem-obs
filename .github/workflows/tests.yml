@@ -43,11 +43,13 @@ jobs:
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.5.0
+        continue-on-error: true
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Upload coverage to Code Climate
         uses: paambaati/codeclimate-action@v2.7.5
+        continue-on-error: true
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
