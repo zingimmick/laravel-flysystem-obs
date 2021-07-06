@@ -25,6 +25,9 @@
         "phpunit/phpunit": "^8.0,<8.5.12 || ^9.3.3",
         "zing/coding-standard": "^4.0"
     },
+    "conflict": {
+        "zing/flysystem-obs": "1.0.0-beta.1"
+    },
     "autoload": {
         "psr-4": {
             "Zing\\LaravelFlysystem\\Obs\\": "src"
