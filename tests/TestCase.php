@@ -15,7 +15,7 @@ class TestCase extends BaseTestCase
         return [ObsServiceProvider::class];
     }
 
-    protected function defineEnvironment($app): void
+    protected function getEnvironmentSetUp($app): void
     {
         Config::set('filesystems.disks.obs', [
             'driver' => 'obs',
