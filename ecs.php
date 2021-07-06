@@ -24,12 +24,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     ]);
     $parameters->set(
         Option::PATHS,
-        [
-            __DIR__ . '/src',
-            __DIR__ . '/tests',
-            __DIR__ . '/changelog-linker.php',
-            __DIR__ . '/ecs.php',
-            __DIR__ . '/rector.php',
-        ]
+        [__DIR__ . '/src', __DIR__ . '/tests', __DIR__ . '/ecs.php', __DIR__ . '/rector.php']
     );
 };
