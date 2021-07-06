@@ -16,6 +16,26 @@ Require Laravel Flysystem OBS using [Composer](https://getcomposer.org):
 composer require zing/laravel-flysystem-obs
 ```
 
+## Configuration
+
+```php
+return [
+    // ...
+    'disks' => [
+        // ...
+        'obs' => [
+            'driver' => 'obs',
+            'root' => '',
+            'key' => env('OBS_KEY'),
+            'secret' => env('OBS_SECRET'),
+            'bucket' => env('OBS_BUCKET'),
+            'endpoint' => env('OBS_ENDPOINT'),
+            'bucket_endpoint' => env('OBS_BUCKET_ENDPOINT', false),
+        ],
+    ]
+];
+```
+
 ## License
 
 Laravel Flysystem OBS is an open-sourced software licensed under the [MIT license](LICENSE).

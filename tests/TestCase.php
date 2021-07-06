@@ -22,7 +22,6 @@ class TestCase extends BaseTestCase
             'key' => '',
             'secret' => '',
             'bucket' => 'test',
-            'security_token' => '',
             'endpoint' => 'obs.cn-east-3.myhuaweicloud.com',
             'url' => 'https://test-url',
             'temporary_url' => 'https://test-temporary-url',
