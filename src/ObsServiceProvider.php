@@ -26,7 +26,7 @@ class ObsServiceProvider extends ServiceProvider
                 Arr::only($config, ['url', 'temporary_url', 'bucket_endpoint']),
                 $config['options'] ?? []
             );
-            $adapter = new ObsAdapter(
+            $obsAdapter = new ObsAdapter(
                 new ObsClient($config),
                 $config['endpoint'],
                 $config['bucket'],
@@ -34,7 +34,7 @@ class ObsServiceProvider extends ServiceProvider
                 $options
             );
 
-            $filesystem = new Filesystem($adapter, $config);
+            $filesystem = new Filesystem($obsAdapter, $config);
 
             $filesystem->addPlugin(new FileUrl());
             $filesystem->addPlugin(new SignUrl());

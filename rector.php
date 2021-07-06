@@ -11,6 +11,7 @@ use Rector\Doctrine\Set\DoctrineSetList;
 use Rector\Laravel\Set\LaravelSetList;
 use Rector\Naming\Rector\Assign\RenameVariableToMatchMethodCallReturnTypeRector;
 use Rector\Naming\Rector\ClassMethod\RenameParamToMatchTypeRector;
+use Rector\Php70\Rector\StaticCall\StaticCallOnNonStaticToInstanceCallRector;
 use Rector\PHPUnit\Rector\Class_\AddSeeTestAnnotationRector;
 use Rector\PHPUnit\Set\PHPUnitSetList;
 use Rector\Privatization\Rector\Class_\ChangeReadOnlyVariableWithDefaultValueToConstantRector;
@@ -41,6 +42,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             RemoveUselessReturnTagRector::class,
             RenameVariableToMatchMethodCallReturnTypeRector::class,
             RenameParamToMatchTypeRector::class,
+            StaticCallOnNonStaticToInstanceCallRector::class,
             AddSeeTestAnnotationRector::class,
             ChangeReadOnlyVariableWithDefaultValueToConstantRector::class,
             FinalizeClassesWithoutChildrenRector::class,
@@ -51,12 +53,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     );
     $parameters->set(
         Option::PATHS,
-        [
-            __DIR__ . '/src',
-            __DIR__ . '/tests',
-            __DIR__ . '/changelog-linker.php',
-            __DIR__ . '/ecs.php',
-            __DIR__ . '/rector.php',
-        ]
+        [__DIR__ . '/src', __DIR__ . '/tests', __DIR__ . '/ecs.php', __DIR__ . '/rector.php']
     );
 };
