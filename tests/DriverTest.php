@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Zing\LaravelFlysystem\Obs\Tests;
 
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Zing\Flysystem\Obs\ObsAdapter;
 
@@ -21,6 +22,9 @@ class DriverTest extends TestCase
 
     public function testTemporaryUrl(): void
     {
-        self::assertStringStartsWith('https://test-temporary-url', Storage::disk('obs')->temporaryUrl('test', 10));
+        self::assertStringStartsWith(
+            'https://test-temporary-url',
+            Storage::disk('obs')->temporaryUrl('test', Carbon::now()->addMinutes())
+        );
     }
 }
