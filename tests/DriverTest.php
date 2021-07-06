@@ -13,4 +13,14 @@ class DriverTest extends TestCase
     {
         self::assertInstanceOf(ObsAdapter::class, Storage::disk('obs')->getDriver()->getAdapter());
     }
+
+    public function testUrl(): void
+    {
+        self::assertStringStartsWith('https://test-url', Storage::disk('obs')->url('test'));
+    }
+
+    public function testTemporaryUrl(): void
+    {
+        self::assertStringStartsWith('https://test-temporary-url', Storage::disk('obs')->temporaryUrl('test', 10));
+    }
 }

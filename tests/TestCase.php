@@ -15,26 +15,18 @@ class TestCase extends BaseTestCase
         return [ObsServiceProvider::class];
     }
 
-    protected function getEnvironmentSetUp($app): void
+    protected function defineEnvironment($app): void
     {
         Config::set('filesystems.disks.obs', [
             'driver' => 'obs',
             'key' => '',
             'secret' => '',
-            'bucket' => '',
+            'bucket' => 'test',
             'security_token' => '',
             'endpoint' => 'obs.cn-east-3.myhuaweicloud.com',
-            'signature' => 'v2',
-            'path_style' => '',
-            'region' => '',
-            'ssl_verify' => '',
-            'ssl.certificate_authority' => '',
-            'max_retry_count' => '',
-            'timeout' => '',
-            'socket_timeout' => '',
-            'connect_timeout' => '',
-            'chunk_size' => '',
-            'exception_response_mode' => '',
+            'url' => 'https://test-url',
+            'temporary_url' => 'https://test-temporary-url',
+            'bucket_endpoint' => true,
         ]);
     }
 }
