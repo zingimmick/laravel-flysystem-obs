@@ -86,12 +86,13 @@ class ObsAdapter extends FilesystemAdapter
     {
         $expires = $expiration instanceof \DateTimeInterface ? $expiration->getTimestamp() - time() : $expiration;
 
-        $model = $this->client->createSignedUrl(array_merge([
+        $model = $this->client->createSignedUrl([
             'Method' => 'GET',
             'Bucket' => $this->config['bucket'],
             'Key' => $this->prefixer->prefixPath($path),
             'Expires' => $expires,
-        ], $options));
+            'QueryParams' => $options,
+        ]);
 
         $uri = new Uri($model['SignedUrl']);
 
