@@ -21,10 +21,31 @@ class TestCase extends BaseTestCase
             'driver' => 'obs',
             'key' => '',
             'secret' => '',
-            'bucket' => 'test',
-            'endpoint' => 'obs.cn-east-3.myhuaweicloud.com',
+            'bucket' => 'your-bucket',
+            'endpoint' => 'your-endpoint',
+        ]);
+        Config::set('filesystems.disks.obs-url', [
+            'driver' => 'obs',
+            'key' => '',
+            'secret' => '',
+            'bucket' => 'your-bucket',
+            'endpoint' => 'your-endpoint',
             'url' => 'https://test-url',
+        ]);
+        Config::set('filesystems.disks.obs-temporary-url', [
+            'driver' => 'obs',
+            'key' => '',
+            'secret' => '',
+            'bucket' => 'your-bucket',
+            'endpoint' => 'your-endpoint',
             'temporary_url' => 'https://test-temporary-url',
+        ]);
+        Config::set('filesystems.disks.obs-bucket-endpoint', [
+            'driver' => 'obs',
+            'key' => '',
+            'secret' => '',
+            'bucket' => 'your-bucket',
+            'endpoint' => 'your-endpoint',
             'bucket_endpoint' => true,
         ]);
     }
