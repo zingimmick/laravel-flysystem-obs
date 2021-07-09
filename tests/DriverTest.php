@@ -16,14 +16,19 @@ class DriverTest extends TestCase
 
     public function testUrl(): void
     {
-        self::assertStringStartsWith('https://test-url', Storage::disk('obs')->url('test'));
+        self::assertStringStartsWith('https://test-url', Storage::disk('obs-url')->url('test'));
     }
 
     public function testTemporaryUrl(): void
     {
         self::assertStringStartsWith(
             'https://test-temporary-url',
-            Storage::disk('obs')->temporaryUrl('test', Carbon::now()->addMinutes())
+            Storage::disk('obs-temporary-url')->temporaryUrl('test', Carbon::now()->addMinutes())
         );
+    }
+
+    public function testBucketEndpoint(): void
+    {
+        self::assertStringStartsWith('https://your-endpoint', Storage::disk('obs-bucket-endpoint')->url('test'));
     }
 }
