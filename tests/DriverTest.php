@@ -30,9 +30,6 @@ class DriverTest extends TestCase
 
     public function testBucketEndpoint(): void
     {
-        self::assertStringStartsWith(
-            'https://your-endpoint',
-            Storage::disk('obs-bucket-endpoint')->url('test')
-        );
+        self::assertStringStartsWith('https://your-endpoint', Storage::disk('obs-bucket-endpoint')->url('test'));
     }
 }
