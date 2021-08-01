@@ -6,6 +6,7 @@ namespace Zing\LaravelFlysystem\Obs\Tests;
 
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
+use Obs\ObsClient;
 
 class DriverTest extends TestCase
 {
@@ -30,5 +31,16 @@ class DriverTest extends TestCase
     public function testBucketEndpoint(): void
     {
         self::assertStringStartsWith('https://your-endpoint', Storage::disk('obs-bucket-endpoint')->url('test'));
+    }
+
+    public function testIsCname(): void
+    {
+        if (version_compare(ObsClient::SDK_VERSION, '3.21.6') < 0) {
+            self::markTestSkipped('Option `is_cname` not supported.');
+        }
+        self::assertStringStartsWith(
+            'https://your-endpoint',
+            Storage::disk('obs-bucket-endpoint')->temporaryUrl('test', Carbon::now()->addMinutes())
+        );
     }
 }
