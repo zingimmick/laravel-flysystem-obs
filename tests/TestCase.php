@@ -48,5 +48,13 @@ class TestCase extends BaseTestCase
             'endpoint' => 'your-endpoint',
             'bucket_endpoint' => true,
         ]);
+        Config::set('filesystems.disks.obs-is-cname', [
+            'driver' => 'obs',
+            'key' => '',
+            'secret' => '',
+            'bucket' => 'your-bucket',
+            'endpoint' => 'your-endpoint',
+            'is_cname' => true,
+        ]);
     }
 }

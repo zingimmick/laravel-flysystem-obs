@@ -26,6 +26,12 @@ class ObsServiceProvider extends ServiceProvider
                 Arr::only($config, ['url', 'temporary_url', 'bucket_endpoint']),
                 $config['options'] ?? []
             );
+            if (! isset($config['is_cname']) && isset($config['bucket_endpoint'])) {
+                $config['is_cname'] = $config['bucket_endpoint'];
+            }
+            if (isset($config['is_cname']) && ! isset($config['bucket_endpoint'])) {
+                $config['bucket_endpoint'] = $config['is_cname'];
+            }
             $obsAdapter = new ObsAdapter(
                 new ObsClient($config),
                 $config['endpoint'],
