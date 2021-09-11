@@ -62,6 +62,7 @@ class ObsAdapter extends FilesystemAdapter
         if (strpos($endpoint, 'http') !== 0) {
             $endpoint = 'https://' . $endpoint;
         }
+
         $url = parse_url($endpoint);
         $domain = $url['host'];
         if (! ($this->config['bucket_endpoint'] ?? false)) {

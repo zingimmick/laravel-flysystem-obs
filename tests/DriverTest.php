@@ -43,6 +43,7 @@ class DriverTest extends TestCase
         if (! $this->supportIsCname()) {
             self::markTestSkipped('Option `is_cname` not supported.');
         }
+
         self::assertStringStartsWith(
             'https://your-endpoint',
             Storage::disk('obs-bucket-endpoint')->temporaryUrl('test', Carbon::now()->addMinutes())

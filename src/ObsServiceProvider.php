@@ -25,9 +25,11 @@ class ObsServiceProvider extends ServiceProvider
             if (! isset($config['is_cname']) && isset($config['bucket_endpoint'])) {
                 $config['is_cname'] = $config['bucket_endpoint'];
             }
+
             if (isset($config['is_cname']) && ! isset($config['bucket_endpoint'])) {
                 $config['bucket_endpoint'] = $config['is_cname'];
             }
+
             $obsClient = new ObsClient($config);
             $obsAdapter = new LeagueObsAdapter(
                 $obsClient,
