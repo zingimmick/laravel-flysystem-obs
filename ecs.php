@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use PhpCsFixer\Fixer\ControlStructure\YodaStyleFixer;
-use PhpCsFixer\Fixer\Phpdoc\NoSuperfluousPhpdocTagsFixer;
 use PhpCsFixer\Fixer\PhpUnit\PhpUnitInternalClassFixer;
 use PhpCsFixer\Fixer\PhpUnit\PhpUnitTestClassRequiresCoversFixer;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -20,7 +19,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         YodaStyleFixer::class => null,
         PhpUnitInternalClassFixer::class,
         PhpUnitTestClassRequiresCoversFixer::class,
-        NoSuperfluousPhpdocTagsFixer::class,
     ]);
     $parameters->set(
         Option::PATHS,
