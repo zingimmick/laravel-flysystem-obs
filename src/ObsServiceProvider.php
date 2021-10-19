@@ -20,7 +20,7 @@ class ObsServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        Storage::extend('obs', function ($app, $config) {
+        Storage::extend('obs', function ($app, $config): Filesystem {
             $root = $config['root'] ?? null;
             $options = array_merge(
                 Arr::only($config, ['url', 'temporary_url', 'bucket_endpoint']),
