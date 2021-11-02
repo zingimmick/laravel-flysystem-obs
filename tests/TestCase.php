@@ -10,6 +10,9 @@ use Zing\LaravelFlysystem\Obs\ObsServiceProvider;
 
 class TestCase extends BaseTestCase
 {
+    /**
+     * @return array<class-string<\Illuminate\Support\ServiceProvider>>
+     */
     protected function getPackageProviders($app)
     {
         return [ObsServiceProvider::class];
