@@ -11,6 +11,8 @@ use Zing\LaravelFlysystem\Obs\ObsServiceProvider;
 class TestCase extends BaseTestCase
 {
     /**
+     * @param mixed $app
+     *
      * @return array<class-string<\Illuminate\Support\ServiceProvider>>
      */
     protected function getPackageProviders($app)
