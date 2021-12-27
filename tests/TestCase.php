@@ -15,7 +15,7 @@ class TestCase extends BaseTestCase
      *
      * @return array<class-string<\Illuminate\Support\ServiceProvider>>
      */
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [ObsServiceProvider::class];
     }
