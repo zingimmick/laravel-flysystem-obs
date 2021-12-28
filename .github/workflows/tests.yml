@@ -9,47 +9,48 @@ on:
     - cron: '0 0 * * *'
 
 jobs:
-  runs-on: ubuntu-latest
-  strategy:
-    fail-fast: true
-    matrix:
-      php: [8.0, 8.1]
-      stability: [lowest, highest]
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        php: [ 8.0, 8.1 ]
+        stability: [ lowest, highest ]
 
-  name: PHP ${{ matrix.php }} - ${{ matrix.stability }}
+    name: PHP ${{ matrix.php }} - ${{ matrix.stability }}
 
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v2.4.0
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2.4.0
 
-    - name: Setup PHP
-      uses: shivammathur/setup-php@2.15.0
-      with:
-        php-version: ${{ matrix.php }}
-        coverage: xdebug
+      - name: Setup PHP
+        uses: shivammathur/setup-php@2.15.0
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: xdebug
 
-    - name: Setup problem matchers for PHPUnit
-      run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+      - name: Setup problem matchers for PHPUnit
+        run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
-    - name: Install dependencies
-      uses: ramsey/composer-install@v1
-      with:
-        dependency-versions: ${{ matrix.stability }}
+      - name: Install dependencies
+        uses: ramsey/composer-install@v1
+        with:
+          dependency-versions: ${{ matrix.stability }}
 
-    - name: Execute tests
-      run: composer run-script test:phpunit -- --coverage-clover coverage.xml
+      - name: Execute tests
+        run: composer run-script test:phpunit -- --coverage-clover coverage.xml
 
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v2.1.0
-      continue-on-error: true
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2.1.0
+        continue-on-error: true
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
-    - name: Upload coverage to Code Climate
-      uses: paambaati/codeclimate-action@v3.0.0
-      continue-on-error: true
-      env:
-        CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-      with:
-        coverageCommand: ls
-        coverageLocations: ${{github.workspace}}/coverage.xml:clover
+      - name: Upload coverage to Code Climate
+        uses: paambaati/codeclimate-action@v3.0.0
+        continue-on-error: true
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: ls
+          coverageLocations: ${{github.workspace}}/coverage.xml:clover
