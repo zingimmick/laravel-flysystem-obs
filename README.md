@@ -8,7 +8,16 @@
 <a href="https://packagist.org/packages/zing/laravel-flysystem-obs"><img src="https://poser.pugx.org/zing/laravel-flysystem-obs/license" alt="License"></a>
 </p>
 
-> **Requires [PHP 7.2.0+](https://php.net/releases/)**
+> **Requires**
+> - **[PHP 7.2+](https://php.net/releases/)**
+> - **[Laravel 6.0+](https://php.net/releases/)**
+
+## Version Information
+
+| Version | Illuminate | PHP Version | Status                  |
+|:--------|:-----------|:------------|:------------------------|
+| 2.x     | 9.x        | >= 8.0      | Active support :rocket: |
+| 1.x     | 6.x - 8.x  | >= 7.2      | Active support          |
 
 Require Laravel Flysystem OBS using [Composer](https://getcomposer.org):
 
