@@ -10,11 +10,6 @@ use Obs\ObsClient;
 
 class DriverTest extends TestCase
 {
-    public function testDriverRegistered(): void
-    {
-        self::assertInstanceOf(\Zing\LaravelFlysystem\Obs\ObsAdapter::class, Storage::disk('obs'));
-    }
-
     public function testUrl(): void
     {
         self::assertStringStartsWith('https://test-url', Storage::disk('obs-url')->url('test'));

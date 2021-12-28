@@ -6,6 +6,5 @@ parameters:
     paths:
         - src
         - tests
-    checkMissingIterableValueType: false
     ignoreErrors:
         - '#Call to an undefined method League\\Flysystem\\FilesystemInterface::getAdapter\(\).#'
