@@ -11,8 +11,8 @@ use Zing\CodingStandard\Set\ECSSetList;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->import(ECSSetList::CUSTOM);
-    $containerConfigurator->import(ECSSetList::PHP71_MIGRATION);
-    $containerConfigurator->import(ECSSetList::PHP71_MIGRATION_RISKY);
+    $containerConfigurator->import(ECSSetList::PHP80_MIGRATION);
+    $containerConfigurator->import(ECSSetList::PHP80_MIGRATION_RISKY);
 
     $parameters = $containerConfigurator->parameters();
     $parameters->set(Option::SKIP, [

@@ -14,7 +14,7 @@
         "preferred-install": "dist"
     },
     "require": {
-        "php": "^7.2 || ^8.0",
+        "php": "^8.0",
         "illuminate/support": "^9.0",
         "zing/flysystem-obs": "^2.2"
     },

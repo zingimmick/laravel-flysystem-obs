@@ -10,7 +10,7 @@
 </p>
 
 > **Requires**
-> - **[PHP 7.2+](https://php.net/releases/)**
+> - **[PHP 8.0+](https://php.net/releases/)**
 > - **[Laravel 9.0+](https://php.net/releases/)**
 
 ## Version Information
