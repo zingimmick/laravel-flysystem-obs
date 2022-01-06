@@ -9,7 +9,10 @@ use Illuminate\Support\Facades\Storage;
 use Obs\ObsClient;
 use Zing\Flysystem\Obs\ObsAdapter;
 
-class DriverTest extends TestCase
+/**
+ * @internal
+ */
+final class DriverTest extends TestCase
 {
     public function testDriverRegistered(): void
     {
