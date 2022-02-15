@@ -22,7 +22,7 @@ class ObsServiceProvider extends ServiceProvider
             $root = $config['root'] ?? '';
             $options = $config['options'] ?? [];
             $portableVisibilityConverter = new PortableVisibilityConverter(
-                $config['visibility'] ?? Visibility::PUBLIC
+                $config['directory_visibility'] ?? $config['visibility'] ?? Visibility::PUBLIC
             );
             if (! isset($config['is_cname']) && isset($config['bucket_endpoint'])) {
                 $config['is_cname'] = $config['bucket_endpoint'];
