@@ -1,5 +1,7 @@
 # Laravel Flysystem OBS
 
+OBS storage filesystem for Laravel based on [zing/flysystem-obs](https://github.com/zingimmick/flysystem-obs)
+
 <p align="center">
 <a href="https://github.com/zingimmick/laravel-flysystem-obs/actions"><img src="https://github.com/zingimmick/laravel-flysystem-obs/workflows/tests/badge.svg" alt="Build Status"></a>
 <a href="https://codecov.io/gh/zingimmick/laravel-flysystem-obs"><img src="https://codecov.io/gh/zingimmick/laravel-flysystem-obs/branch/master/graph/badge.svg" alt="Code Coverage" /></a>
@@ -11,7 +13,7 @@
 
 > **Requires**
 > - **[PHP 8.0+](https://php.net/releases/)**
-> - **[Laravel 9.0+](https://php.net/releases/)**
+> - **[Laravel 9.0+](https://laravel.com/docs/releases)**
 
 ## Version Information
 
