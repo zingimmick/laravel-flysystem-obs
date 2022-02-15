@@ -2,14 +2,12 @@
 
 OBS storage filesystem for Laravel based on [zing/flysystem-obs](https://github.com/zingimmick/flysystem-obs)
 
-<p align="center">
-<a href="https://github.com/zingimmick/laravel-flysystem-obs/actions"><img src="https://github.com/zingimmick/laravel-flysystem-obs/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://codecov.io/gh/zingimmick/laravel-flysystem-obs"><img src="https://codecov.io/gh/zingimmick/laravel-flysystem-obs/branch/master/graph/badge.svg" alt="Code Coverage" /></a>
-<a href="https://packagist.org/packages/zing/laravel-flysystem-obs"><img src="https://poser.pugx.org/zing/laravel-flysystem-obs/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/zing/laravel-flysystem-obs"><img src="https://poser.pugx.org/zing/laravel-flysystem-obs/downloads" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/zing/laravel-flysystem-obs"><img src="https://poser.pugx.org/zing/laravel-flysystem-obs/v/unstable.svg" alt="Latest Unstable Version"></a>
-<a href="https://packagist.org/packages/zing/laravel-flysystem-obs"><img src="https://poser.pugx.org/zing/laravel-flysystem-obs/license" alt="License"></a>
-</p>
+[![Build Status](https://github.com/zingimmick/laravel-flysystem-obs/workflows/tests/badge.svg)](https://github.com/zingimmick/laravel-flysystem-obs/actions)
+[![Code Coverage](https://codecov.io/gh/zingimmick/laravel-flysystem-obs/branch/master/graph/badge.svg)](https://codecov.io/gh/zingimmick/laravel-flysystem-obs)
+[![Latest Stable Version](https://poser.pugx.org/zing/laravel-flysystem-obs/v/stable.svg)](https://packagist.org/packages/zing/laravel-flysystem-obs)
+[![Total Downloads](https://poser.pugx.org/zing/laravel-flysystem-obs/downloads)](https://packagist.org/packages/zing/laravel-flysystem-obs)
+[![Latest Unstable Version](https://poser.pugx.org/zing/laravel-flysystem-obs/v/unstable.svg)](https://packagist.org/packages/zing/laravel-flysystem-obs)
+[![License](https://poser.pugx.org/zing/laravel-flysystem-obs/license)](https://packagist.org/packages/zing/laravel-flysystem-obs)
 
 > **Requires**
 > - **[PHP 8.0+](https://php.net/releases/)**
