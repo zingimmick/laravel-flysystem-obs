@@ -46,6 +46,16 @@ return [
 ];
 ```
 
+## Environment
+
+```dotenv
+OBS_KEY=
+OBS_SECRET=
+OBS_BUCKET=
+OBS_ENDPOINT=
+OBS_BUCKET_ENDPOINT=false
+```
+
 ## License
 
 Laravel Flysystem OBS is an open-sourced software licensed under the [MIT license](LICENSE).
