@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Config;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 use Zing\LaravelFlysystem\Obs\ObsServiceProvider;
 
-class TestCase extends BaseTestCase
+abstract class TestCase extends BaseTestCase
 {
     /**
      * @param mixed $app
