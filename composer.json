@@ -1,7 +1,7 @@
 {
     "name": "zing/laravel-flysystem-obs",
     "description": "Flysystem Adapter for OBS",
-    "keywords": ["laravel", "flysystem", "obs"],
+    "keywords": ["obs", "laravel", "flysystem", "filesystem", "storage", "file", "files"],
     "license": "MIT",
     "authors": [
         {
