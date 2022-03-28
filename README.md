@@ -40,7 +40,7 @@ return [
             'bucket' => env('OBS_BUCKET'),
             'endpoint' => env('OBS_ENDPOINT'),
             'is_cname' => env('OBS_IS_CNAME', false),
-            'security_token' => env('OBS_SECURITY_TOKEN', false),
+            'security_token' => env('OBS_SECURITY_TOKEN'),
         ],
     ]
 ];
