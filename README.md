@@ -40,7 +40,8 @@ return [
             'secret' => env('OBS_SECRET'),
             'bucket' => env('OBS_BUCKET'),
             'endpoint' => env('OBS_ENDPOINT'),
-            'bucket_endpoint' => env('OBS_BUCKET_ENDPOINT', false),
+            'is_cname' => env('OBS_IS_CNAME', false),
+            'security_token' => env('OBS_SECURITY_TOKEN'),
         ],
     ]
 ];
@@ -53,7 +54,8 @@ OBS_KEY=
 OBS_SECRET=
 OBS_BUCKET=
 OBS_ENDPOINT=
-OBS_BUCKET_ENDPOINT=false
+OBS_IS_CNAME=false
+OBS_SECURITY_TOKEN=
 ```
 
 ## License
