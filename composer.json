@@ -3,6 +3,11 @@
     "description": "Flysystem Adapter for OBS",
     "keywords": ["obs", "laravel", "flysystem", "filesystem", "storage", "file", "files"],
     "license": "MIT",
+    "homepage": "https://github.com/zingimmick/laravel-flysystem-obs",
+    "support": {
+        "issues": "https://github.com/zingimmick/laravel-flysystem-obs/issues",
+        "source": "https://github.com/zingimmick/laravel-flysystem-obs"
+    },
     "authors": [
         {
             "name": "zingimmick",
