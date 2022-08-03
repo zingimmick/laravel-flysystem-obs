@@ -16,7 +16,7 @@ use Zing\Flysystem\Obs\PortableVisibilityConverter;
 
 class ObsServiceProvider extends ServiceProvider
 {
-    public function boot(): void
+    public function boot() : void
     {
         Storage::extend('obs', function ($app, $config): FilesystemAdapter {
             $root = $config['root'] ?? '';
