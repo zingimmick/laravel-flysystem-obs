@@ -62,11 +62,6 @@
         ],
         "test": [
             "@test:phpunit"
-        ],
-        "changelog": [
-            "changelog-linker dump-merges --ansi",
-            "changelog-linker link --ansi",
-            "changelog-linker cleanup --ansi"
         ]
     },
     "extra": {
