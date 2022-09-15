@@ -61,5 +61,32 @@ abstract class TestCase extends BaseTestCase
             'endpoint' => 'your-endpoint',
             'is_cname' => true,
         ]);
+        Config::set('filesystems.disks.obs-read-only', [
+            'driver' => 'obs',
+            'key' => '',
+            'secret' => '',
+            'bucket' => 'your-bucket',
+            'endpoint' => 'your-endpoint',
+            'read-only' => true,
+        ]);
+        Config::set('filesystems.disks.obs-prefix-url', [
+            'driver' => 'obs',
+            'key' => '',
+            'secret' => '',
+            'bucket' => 'your-bucket',
+            'endpoint' => 'your-endpoint',
+            'root' => 'root',
+            'prefix' => 'prefix',
+        ]);
+        Config::set('filesystems.disks.obs-read-only-and-prefix-url', [
+            'driver' => 'obs',
+            'key' => '',
+            'secret' => '',
+            'bucket' => 'your-bucket',
+            'endpoint' => 'your-endpoint',
+            'root' => 'root',
+            'prefix' => 'prefix',
+            'read-only' => true,
+        ]);
     }
 }

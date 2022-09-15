@@ -6,7 +6,7 @@ namespace Zing\LaravelFlysystem\Obs\Tests;
 
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
-use Obs\ObsClient;
+use League\Flysystem\UnableToWriteFile;
 use Zing\Flysystem\Obs\ObsAdapter;
 
 /**
@@ -37,17 +37,8 @@ final class DriverTest extends TestCase
         self::assertStringStartsWith('https://your-endpoint', Storage::disk('obs-bucket-endpoint')->url('test'));
     }
 
-    private function supportIsCname(): bool
-    {
-        return version_compare(ObsClient::SDK_VERSION, '3.21.6', '>=');
-    }
-
     public function testIsCname(): void
     {
-        if (! $this->supportIsCname()) {
-            self::markTestSkipped('Option `is_cname` not supported.');
-        }
-
         self::assertStringStartsWith(
             'https://your-endpoint',
             Storage::disk('obs-bucket-endpoint')->temporaryUrl('test', Carbon::now()->addMinutes())
@@ -56,5 +47,37 @@ final class DriverTest extends TestCase
             'https://your-endpoint',
             Storage::disk('obs-is-cname')->temporaryUrl('test', Carbon::now()->addMinutes())
         );
+    }
+
+    public function testReadOnly(): void
+    {
+        $this->expectException(UnableToWriteFile::class);
+        Storage::disk('obs-read-only')->write('test', 'test');
+    }
+
+    public function testPrefix(): void
+    {
+        self::assertSame(
+            'https://your-bucket.your-endpoint/root/prefix/test',
+            Storage::disk('obs-prefix-url')->url('test')
+        );
+        self::assertStringStartsWith(
+            'https://your-bucket.your-endpoint/root/prefix/test',
+            Storage::disk('obs-prefix-url')->temporaryUrl('test', Carbon::now()->addMinutes())
+        );
+    }
+
+    public function testReadOnlyAndPrefix(): void
+    {
+        self::assertSame(
+            'https://your-bucket.your-endpoint/root/prefix/test',
+            Storage::disk('obs-read-only-and-prefix-url')->url('test')
+        );
+        self::assertStringStartsWith(
+            'https://your-bucket.your-endpoint/root/prefix/test',
+            Storage::disk('obs-read-only-and-prefix-url')->temporaryUrl('test', Carbon::now()->addMinutes())
+        );
+        $this->expectException(UnableToWriteFile::class);
+        Storage::disk('obs-read-only-and-prefix-url')->write('test', 'test');
     }
 }
