@@ -12,7 +12,10 @@ use Zing\Flysystem\Obs\ObsAdapter as Adapter;
 
 class ObsAdapter extends FilesystemAdapter
 {
-    protected Adapter $adapter;
+    /**
+     * @var Adapter
+     */
+    protected $adapter;
 
     /**
      * @param array<string, mixed> $config
