@@ -6,6 +6,7 @@ namespace Zing\LaravelFlysystem\Obs\Tests;
 
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
+use League\Flysystem\UnableToWriteFile;
 use Obs\ObsClient;
 use Zing\Flysystem\Obs\ObsAdapter;
 
@@ -56,5 +57,37 @@ final class DriverTest extends TestCase
             'https://your-endpoint',
             Storage::disk('obs-is-cname')->temporaryUrl('test', Carbon::now()->addMinutes())
         );
+    }
+
+    public function testReadOnly(): void
+    {
+        $this->expectException(UnableToWriteFile::class);
+        Storage::disk('obs-read-only')->write('test', 'test');
+    }
+
+    public function testPrefix(): void
+    {
+        self::assertSame(
+            'https://your-bucket.your-endpoint/root/prefix/test',
+            Storage::disk('obs-prefix-url')->url('test')
+        );
+        self::assertStringStartsWith(
+            'https://your-bucket.your-endpoint/root/prefix/test',
+            Storage::disk('obs-prefix-url')->temporaryUrl('test', Carbon::now()->addMinutes())
+        );
+    }
+
+    public function testReadOnlyAndPrefix()
+    {
+        self::assertSame(
+            'https://your-bucket.your-endpoint/root/prefix/test',
+            Storage::disk('obs-read-only-and-prefix-url')->url('test')
+        );
+        self::assertStringStartsWith(
+            'https://your-bucket.your-endpoint/root/prefix/test',
+            Storage::disk('obs-read-only-and-prefix-url')->temporaryUrl('test', Carbon::now()->addMinutes())
+        );
+        $this->expectException(UnableToWriteFile::class);
+        Storage::disk('obs-read-only-and-prefix-url')->write('test', 'test');
     }
 }
