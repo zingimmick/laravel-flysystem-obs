@@ -7,7 +7,6 @@ namespace Zing\LaravelFlysystem\Obs\Tests;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 use League\Flysystem\UnableToWriteFile;
-use Obs\ObsClient;
 use Zing\Flysystem\Obs\ObsAdapter;
 
 /**
