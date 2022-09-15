@@ -38,17 +38,8 @@ final class DriverTest extends TestCase
         self::assertStringStartsWith('https://your-endpoint', Storage::disk('obs-bucket-endpoint')->url('test'));
     }
 
-    private function supportIsCname(): bool
-    {
-        return version_compare(ObsClient::SDK_VERSION, '3.21.6', '>=');
-    }
-
     public function testIsCname(): void
     {
-        if (! $this->supportIsCname()) {
-            self::markTestSkipped('Option `is_cname` not supported.');
-        }
-
         self::assertStringStartsWith(
             'https://your-endpoint',
             Storage::disk('obs-bucket-endpoint')->temporaryUrl('test', Carbon::now()->addMinutes())

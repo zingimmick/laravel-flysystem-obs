@@ -24,7 +24,9 @@
     },
     "require": {
         "php": "^8.0",
+        "illuminate/filesystem": "^9.30",
         "illuminate/support": "^9.0",
+        "zing/esdk-obs-php": "^3.21.6",
         "zing/flysystem-obs": "^2.2"
     },
     "require-dev": {
