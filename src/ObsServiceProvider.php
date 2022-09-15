@@ -52,10 +52,7 @@ class ObsServiceProvider extends ServiceProvider
                 $adapter = new PathPrefixedAdapter($adapter, $config['prefix']);
             }
 
-            return new ObsAdapter(new Filesystem(
-                $adapter,
-                $config
-            ), $obsAdapter, $config, $obsClient);
+            return new ObsAdapter(new Filesystem($adapter, $config), $obsAdapter, $config, $obsClient);
         });
     }
 }

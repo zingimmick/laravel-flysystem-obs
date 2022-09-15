@@ -77,7 +77,7 @@ final class DriverTest extends TestCase
         );
     }
 
-    public function testReadOnlyAndPrefix()
+    public function testReadOnlyAndPrefix(): void
     {
         self::assertSame(
             'https://your-bucket.your-endpoint/root/prefix/test',
