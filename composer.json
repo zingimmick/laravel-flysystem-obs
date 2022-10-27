@@ -27,7 +27,7 @@
         "illuminate/filesystem": "^9.30",
         "illuminate/support": "^9.0",
         "zing/esdk-obs-php": "^3.21.6",
-        "zing/flysystem-obs": "^2.2"
+        "zing/flysystem-obs": "^2.2 || ^3.0"
     },
     "require-dev": {
         "league/flysystem-path-prefixing": "^3.3",
