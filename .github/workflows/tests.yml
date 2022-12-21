@@ -38,6 +38,10 @@ jobs:
         with:
           dependency-versions: ${{ matrix.stability }}
 
+      - if: matrix.php == '8.2'
+        name: Require packages for PHP 8.2
+        run: composer require nesbot/carbon:^2.62.1 --no-update
+
       - name: Execute tests
         run: composer run-script test:phpunit -- --coverage-clover coverage.xml
 
