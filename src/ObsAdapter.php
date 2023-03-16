@@ -6,12 +6,15 @@ namespace Zing\LaravelFlysystem\Obs;
 
 use GuzzleHttp\Psr7\Uri;
 use Illuminate\Filesystem\FilesystemAdapter;
+use Illuminate\Support\Traits\Conditionable;
 use League\Flysystem\FilesystemOperator;
 use Obs\ObsClient;
 use Zing\Flysystem\Obs\ObsAdapter as Adapter;
 
 class ObsAdapter extends FilesystemAdapter
 {
+    use Conditionable;
+
     /**
      * @var \Zing\Flysystem\Obs\ObsAdapter
      */
@@ -102,5 +105,38 @@ class ObsAdapter extends FilesystemAdapter
         ]);
 
         return $model['SignedUrl'];
+    }
+
+    /**
+     * Get a temporary URL for the file at the given path.
+     *
+     * @param string $path
+     * @param \DateTimeInterface $expiration
+     * @param array<string, mixed> $options
+     *
+     * @return array{url: string, headers: array<string, string>}
+     */
+    public function temporaryUploadUrl($path, $expiration, array $options = []): array
+    {
+        $expires = $expiration->getTimestamp() - time();
+
+        /** @var array{SignedUrl: string, ActualSignedRequestHeaders: array<string, string>} $model */
+        $model = $this->obsClient->createSignedUrl([
+            'Method' => 'PUT',
+            'Bucket' => $this->config['bucket'],
+            'Key' => $this->prefixer->prefixPath($path),
+            'Expires' => $expires,
+            'QueryParams' => $options,
+        ]);
+        $uri = new Uri($model['SignedUrl']);
+
+        if (isset($this->config['temporary_url'])) {
+            $uri = $this->replaceBaseUrl($uri, $this->config['temporary_url']);
+        }
+
+        return [
+            'url' => (string) $uri,
+            'headers' => $model['ActualSignedRequestHeaders'],
+        ];
     }
 }
