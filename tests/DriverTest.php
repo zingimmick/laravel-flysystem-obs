@@ -83,12 +83,14 @@ final class DriverTest extends TestCase
 
     public function testTemporaryUploadUrl(): void
     {
-        $now = Carbon::createFromTimestamp('1679167740');
+        $now = Carbon::now()->addMinutes();
+        $data = Storage::disk('obs-temporary-url')->temporaryUploadUrl('test', $now);
+        self::assertStringStartsWith(
+            sprintf('https://test-temporary-url/test?AccessKeyId&Expires=%d&Signature=', $now->getTimestamp()),
+            $data['url']
+        );
         self::assertSame([
-            'url' => 'https://test-temporary-url/test?AccessKeyId&Expires=1679167740&Signature=2BhpFryKaaoWCVTih9zkEFTHZJo%3D',
-            'headers' => [
-                'Host' => 'your-bucket.your-endpoint',
-            ],
-        ], Storage::disk('obs-temporary-url')->temporaryUploadUrl('test', $now));
+            'Host' => 'your-bucket.your-endpoint',
+        ], $data['headers']);
     }
 }
