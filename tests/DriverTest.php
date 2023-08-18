@@ -16,17 +16,17 @@ final class DriverTest extends TestCase
 {
     public function testDriverRegistered(): void
     {
-        self::assertInstanceOf(ObsAdapter::class, Storage::disk('obs')->getAdapter());
+        $this->assertInstanceOf(ObsAdapter::class, Storage::disk('obs')->getAdapter());
     }
 
     public function testUrl(): void
     {
-        self::assertStringStartsWith('https://test-url', Storage::disk('obs-url')->url('test'));
+        $this->assertStringStartsWith('https://test-url', Storage::disk('obs-url')->url('test'));
     }
 
     public function testTemporaryUrl(): void
     {
-        self::assertStringStartsWith(
+        $this->assertStringStartsWith(
             'https://test-temporary-url',
             Storage::disk('obs-temporary-url')->temporaryUrl('test', Carbon::now()->addMinutes())
         );
@@ -34,16 +34,16 @@ final class DriverTest extends TestCase
 
     public function testBucketEndpoint(): void
     {
-        self::assertStringStartsWith('https://your-endpoint', Storage::disk('obs-bucket-endpoint')->url('test'));
+        $this->assertStringStartsWith('https://your-endpoint', Storage::disk('obs-bucket-endpoint')->url('test'));
     }
 
     public function testIsCname(): void
     {
-        self::assertStringStartsWith(
+        $this->assertStringStartsWith(
             'https://your-endpoint',
             Storage::disk('obs-bucket-endpoint')->temporaryUrl('test', Carbon::now()->addMinutes())
         );
-        self::assertStringStartsWith(
+        $this->assertStringStartsWith(
             'https://your-endpoint',
             Storage::disk('obs-is-cname')->temporaryUrl('test', Carbon::now()->addMinutes())
         );
@@ -57,11 +57,11 @@ final class DriverTest extends TestCase
 
     public function testPrefix(): void
     {
-        self::assertSame(
+        $this->assertSame(
             'https://your-bucket.your-endpoint/root/prefix/test',
             Storage::disk('obs-prefix-url')->url('test')
         );
-        self::assertStringStartsWith(
+        $this->assertStringStartsWith(
             'https://your-bucket.your-endpoint/root/prefix/test',
             Storage::disk('obs-prefix-url')->temporaryUrl('test', Carbon::now()->addMinutes())
         );
@@ -69,11 +69,11 @@ final class DriverTest extends TestCase
 
     public function testReadOnlyAndPrefix(): void
     {
-        self::assertSame(
+        $this->assertSame(
             'https://your-bucket.your-endpoint/root/prefix/test',
             Storage::disk('obs-read-only-and-prefix-url')->url('test')
         );
-        self::assertStringStartsWith(
+        $this->assertStringStartsWith(
             'https://your-bucket.your-endpoint/root/prefix/test',
             Storage::disk('obs-read-only-and-prefix-url')->temporaryUrl('test', Carbon::now()->addMinutes())
         );
@@ -85,11 +85,11 @@ final class DriverTest extends TestCase
     {
         $now = Carbon::now()->addMinutes();
         $data = Storage::disk('obs-temporary-url')->temporaryUploadUrl('test', $now);
-        self::assertStringStartsWith(
+        $this->assertStringStartsWith(
             sprintf('https://test-temporary-url/test?AccessKeyId&Expires=%d&Signature=', $now->getTimestamp()),
             $data['url']
         );
-        self::assertSame([
+        $this->assertSame([
             'Host' => 'your-bucket.your-endpoint',
         ], $data['headers']);
     }
