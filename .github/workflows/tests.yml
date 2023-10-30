@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [ '8.0', 8.1, 8.2 ]
+        php: [ '8.0', 8.1, 8.2, 8.3 ]
         stability: [ lowest, highest ]
 
     name: PHP ${{ matrix.php }} - ${{ matrix.stability }}
@@ -35,7 +35,11 @@ jobs:
 
       - if: matrix.php == '8.2'
         name: Require packages for PHP 8.2
-        run: composer require nesbot/carbon:^2.62.1 --no-update
+        run: composer require nesbot/carbon:^2.62.1 --no-update --dev
+
+      - if: matrix.php == '8.3'
+        name: Require packages for PHP 8.3
+        run: composer require nesbot/carbon:^2.62.1 --no-update --dev
 
       - name: Install dependencies
         uses: ramsey/composer-install@v2
@@ -46,7 +50,7 @@ jobs:
         run: composer run-script test:phpunit -- --coverage-clover coverage.xml
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v3
         continue-on-error: true
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
