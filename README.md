@@ -2,7 +2,7 @@
 
 OBS storage filesystem for Laravel based on [zing/flysystem-obs](https://github.com/zingimmick/flysystem-obs)
 
-[![Build Status](https://github.com/zingimmick/laravel-flysystem-obs/workflows/tests/badge.svg)](https://github.com/zingimmick/laravel-flysystem-obs/actions)
+[![Build Status](https://github.com/zingimmick/laravel-flysystem-obs/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/zingimmick/laravel-flysystem-obs/actions)
 [![Code Coverage](https://codecov.io/gh/zingimmick/laravel-flysystem-obs/branch/master/graph/badge.svg)](https://codecov.io/gh/zingimmick/laravel-flysystem-obs)
 [![Latest Stable Version](https://poser.pugx.org/zing/laravel-flysystem-obs/v/stable.svg)](https://packagist.org/packages/zing/laravel-flysystem-obs)
 [![Total Downloads](https://poser.pugx.org/zing/laravel-flysystem-obs/downloads)](https://packagist.org/packages/zing/laravel-flysystem-obs)
