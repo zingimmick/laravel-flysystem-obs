@@ -11,6 +11,9 @@ use League\Flysystem\FilesystemOperator;
 use Obs\ObsClient;
 use Zing\Flysystem\Obs\ObsAdapter as Adapter;
 
+/**
+ * FilesystemAdapter for OBS.
+ */
 class ObsAdapter extends FilesystemAdapter
 {
     use Conditionable;

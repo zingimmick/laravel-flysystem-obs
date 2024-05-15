@@ -16,8 +16,14 @@ use Obs\ObsClient;
 use Zing\Flysystem\Obs\ObsAdapter as Adapter;
 use Zing\Flysystem\Obs\PortableVisibilityConverter;
 
+/**
+ * ServiceProvider for OBS.
+ */
 class ObsServiceProvider extends ServiceProvider
 {
+    /**
+     * Register the OBS driver creator Closure.
+     */
     public function boot(): void
     {
         Storage::extend('obs', static function ($app, $config): FilesystemAdapter {
