@@ -17,7 +17,7 @@ use Zing\Flysystem\Obs\ObsAdapter as Adapter;
 use Zing\Flysystem\Obs\PortableVisibilityConverter;
 
 /**
- * ServiceProvider for OBS
+ * ServiceProvider for OBS.
  */
 class ObsServiceProvider extends ServiceProvider
 {

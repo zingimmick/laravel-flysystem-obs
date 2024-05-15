@@ -12,7 +12,7 @@ use Obs\ObsClient;
 use Zing\Flysystem\Obs\ObsAdapter as Adapter;
 
 /**
- * FilesystemAdapter for OBS
+ * FilesystemAdapter for OBS.
  */
 class ObsAdapter extends FilesystemAdapter
 {
