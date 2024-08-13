@@ -86,7 +86,7 @@ final class DriverTest extends TestCase
         $now = Carbon::now()->addMinutes();
         $data = Storage::disk('obs-temporary-url')->temporaryUploadUrl('test', $now);
         $this->assertStringStartsWith(
-            sprintf('https://test-temporary-url/test?AccessKeyId&Expires=%d&Signature=', $now->getTimestamp()),
+            \sprintf('https://test-temporary-url/test?AccessKeyId&Expires=%d&Signature=', $now->getTimestamp()),
             $data['url']
         );
         $this->assertSame([
