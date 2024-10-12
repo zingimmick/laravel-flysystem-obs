@@ -36,6 +36,27 @@ class ObsServiceProvider extends ServiceProvider
             $config['token'] ??= $config['security_token'] ?? null;
             $config['is_cname'] = $config['bucket_endpoint'];
             $config['security_token'] = $config['token'];
+            $optionMappings = [
+                'key' => 'key',
+                'secret' => 'secret',
+                'token' => 'security_token',
+                'region' => 'region',
+                'endpoint' => 'endpoint',
+                'bucket_endpoint' => 'is_cname',
+                'use_path_style_endpoint' => 'path_style',
+                'signature_version' => 'signature',
+                'http.verify' => 'ssl_verify',
+                'http.timeout' => 'timeout',
+                'http.read_timeout' => 'socket_timeout',
+                'http.connect_timeout' => 'connect_timeout',
+                'retries' => 'max_retry_count',
+            ];
+            foreach ($optionMappings as $standardOption => $clientOption) {
+                if (Arr::has($config, $standardOption)) {
+                    $config[$clientOption] ??= Arr::get($config, $standardOption);
+                }
+            }
+
             $options = array_merge(
                 $options,
                 Arr::only($config, ['url', 'temporary_url', 'endpoint', 'bucket_endpoint'])
