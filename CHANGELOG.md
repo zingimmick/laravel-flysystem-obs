@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 <!-- changelog-linker -->
+## 2.8.0 - 2025-02-24
+
+<!-- Release notes generated using configuration in .github/release.yml at master -->
+### What's Changed
+
+#### Other Changes
+
+* Use larastan/larastan instead of nunomaduro/larastan by @zingimmick in https://github.com/zingimmick/laravel-flysystem-obs/pull/110
+* Support for Laravel 12 by @zingimmick in https://github.com/zingimmick/laravel-flysystem-obs/pull/111
+
+**Full Changelog**: https://github.com/zingimmick/laravel-flysystem-obs/compare/2.7.1...2.8.0
+
 ## 2.7.1 - 2025-01-22
 
 <!-- Release notes generated using configuration in .github/release.yml at master -->
