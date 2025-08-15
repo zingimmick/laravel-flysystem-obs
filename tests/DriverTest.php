@@ -14,7 +14,7 @@ use Zing\Flysystem\Obs\ObsAdapter;
  */
 final class DriverTest extends TestCase
 {
-    public function testDriverRegistered(): void
+    public function testDriverRegistered(): void 
     {
         $this->assertInstanceOf(ObsAdapter::class, Storage::disk('obs')->getAdapter());
     }
