@@ -8,5 +8,3 @@ parameters:
         - tests
     ignoreErrors:
         - identifier: argument.type
-        - identifier: offsetAccess.nonOffsetAccessible
-          path: src/ObsServiceProvider.php
