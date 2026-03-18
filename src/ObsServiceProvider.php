@@ -26,7 +26,7 @@ class ObsServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Storage::extend('obs', static function ($app, array $config): FilesystemAdapter {
+        Storage::extend('obs', function ($app, array $config): FilesystemAdapter {
             $root = $config['root'] ?? '';
             $options = $config['options'] ?? [];
             $portableVisibilityConverter = new PortableVisibilityConverter(
